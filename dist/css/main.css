@@ -2,11 +2,20 @@ body {
   background: yellowgreen;
 }
 
-h1 {
-  font-weight: 900;
+.main {
+  width: 80%;
+  margin: 0 auto;
 }
 
-p {
+.main h1 {
   font-weight: 700;
+}
+
+.main .main-paragraph {
+  font-weight: 400;
+}
+
+.main .main-paragraph:hover {
+  color: pink;
 }
 /*# sourceMappingURL=main.css.map */
