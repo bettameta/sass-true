@@ -1,23 +1,32 @@
+/* @import is for resets and variables */
 @import './resets';
 @import './variables';
 
+/* this function calls out wieghts to be used by name and then returned in css */
 @function weight($weight-name){
    @return map-get($font-weights, $weight-name);
 }
 
+/* mixin are mainly for styling.  like general uses for flexbox. */
 @mixin flexCenter($direction){
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: $direction;
 } 
-   
+
+/* passing a boolean to change the theme on the page */
 @mixin theme($light-theme: true) {
    @if $light-theme {
       background: lighten($primary-color, 100%);
       color: darken($text-color, 100%);
+   }  
+}
+
+@mixin mobile{
+   @media (max-width: $mobile){
+      @content;
    }
-   
 }
 
 body{
@@ -27,16 +36,28 @@ body{
 
 .main{
    @include flexCenter(row);
-   width: 80%;
+   width: 80% - 40%;
    margin: 0 auto;
    
 
-   #{&}-paragraph{
+   #{&}-paragraph1{
       font-weight: weight(regular);
    
       &:hover{
          color: pink;
       }
+   }
+
+   #{&}-paragraph2{
+      @extend .main-paragraph1;
+
+      &:hover {
+         color: $accent-color;
+      }
+   }
+
+   @include mobile{
+      flex-direction: column;
    }
 }
 

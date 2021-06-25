@@ -1,10 +1,16 @@
+/* Variables are set to be able to alter later */
 
+/* body color options */
 $primary-color: #272727;
 $accent-color: teal;
 $text-color: #fff;
 
+/* font weights to be called in main.scss and can be altered */
 $font-weights: (
    "regular": 400,
    "medium": 500,
    "bold": 700
 );
+
+/* this is a media querry to adjust for smaller screens */
+$mobile: 800px;

@@ -1,3 +1,5 @@
+/* @import is for resets and variables */
+/* Resets are to set general styles to the document */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5,6 +7,13 @@
   padding: 0;
 }
 
+/* Variables are set to be able to alter later */
+/* body color options */
+/* font weights to be called in main.scss and can be altered */
+/* this is a media querry to adjust for smaller screens */
+/* this function calls out wieghts to be used by name and then returned in css */
+/* mixin are mainly for styling.  like general uses for flexbox. */
+/* passing a boolean to change the theme on the page */
 body {
   background: #272727;
   color: #fff;
@@ -24,15 +33,28 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 80%;
+  width: 40%;
   margin: 0 auto;
 }
 
-.main .main-paragraph {
+.main .main-paragraph1, .main .main-paragraph2 {
   font-weight: 400;
 }
 
-.main .main-paragraph:hover {
+.main .main-paragraph1:hover, .main .main-paragraph2:hover {
   color: pink;
+}
+
+.main .main-paragraph2:hover {
+  color: teal;
+}
+
+@media (max-width: 800px) {
+  .main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 /*# sourceMappingURL=main.css.map */
