@@ -1,31 +1,45 @@
-$primary-color: green;
-$accent-color: teal;
-$text-color: #fff;
+@import './resets';
+@import './variables';
 
-$font-weights: (
-   "regular": 400,
-   "medium": 500,
-   "bold": 700
-);
+@function weight($weight-name){
+   @return map-get($font-weights, $weight-name);
+}
+
+@mixin flexCenter($direction){
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: $direction;
+} 
+   
+@mixin theme($light-theme: true) {
+   @if $light-theme {
+      background: lighten($primary-color, 100%);
+      color: darken($text-color, 100%);
+   }
+   
+}
 
 body{
-   background: yellowgreen;
+   background: $primary-color;
+   color: $text-color;
 }
 
 .main{
+   @include flexCenter(row);
    width: 80%;
    margin: 0 auto;
-
-
-   h1{
-   font-weight: map-get($font-weights, bold);
-   }
+   
 
    #{&}-paragraph{
-      font-weight: map-get($font-weights, regular);
+      font-weight: weight(regular);
    
       &:hover{
          color: pink;
       }
    }
+}
+
+.light{
+   @include theme($light-theme: false);
 }
